@@ -1,0 +1,24 @@
+<h2>Live Data Feed</h2>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Timestamp</th>
+      <th scope="col">Name</th>
+      <th scope="col">Temperature</th>
+      <th scope="col">Specific Gravity</th>
+      <th scope="col">Status</th>
+    </tr>
+  </thead>
+  <tbody>
+	<% for @item in @data_points %>
+		<tr>
+		  <th scope="row"><%= @item[:timestamp] %></th>
+		  <td><%= @item[:name] %></td>
+		  <td><%= @item[:temp] %></td>
+		  <td><%= @item[:sg] %></td>
+		  <td><%= @item[:status] %></td>
+		</tr>
+	<% end %>
+  </tbody>
+</table>

@@ -23,3 +23,9 @@
 1. Create routes in app
 1. Test again
 1. Finish navigation
+
+## Step 3
+
+1. We used a stub for the data items in the last step. Create a model and some test data
+1. Test display
+
