@@ -1,4 +1,5 @@
 require "roda"
+require_relative("models")
 
 class Rodaapp < Roda
 
@@ -14,7 +15,7 @@ class Rodaapp < Roda
       view("about")
     end
     r.get "data" do
-      @data_points = [{}]
+      @data_points = DataPoint.test_data(10)
       view("data")
     end
   end

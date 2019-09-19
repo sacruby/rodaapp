@@ -13,11 +13,11 @@
   <tbody>
 	<% for @item in @data_points %>
 		<tr>
-		  <th scope="row"><%= @item[:timestamp] %></th>
-		  <td><%= @item[:name] %></td>
-		  <td><%= @item[:temp] %></td>
-		  <td><%= @item[:sg] %></td>
-		  <td><%= @item[:status] %></td>
+		  <th scope="row"><%= @item.timestamp %></th>
+		  <td><%= @item.name %></td>
+		  <td><%= @item.temp %></td>
+		  <td><%= @item.sg %></td>
+		  <td><%= @item.status %></td>
 		</tr>
 	<% end %>
   </tbody>

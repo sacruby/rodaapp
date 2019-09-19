@@ -29,3 +29,8 @@
 1. We used a stub for the data items in the last step. Create a model and some test data
 1. Test display
 
+## Step 4
+
+1. Implement an API to receive the data in a POST and store it in memory
+1. Ascertain you display the "real" data
+
