@@ -4,7 +4,7 @@ require 'json'
 
 uri = URI.parse("http://localhost:9292/data")
 
-header = {'Content-Type': 'text/json'}
+header = {'Content-Type': 'application/json'}
 count = 20
 wait = 1 # sec
 data = {:name =>"ferm1",
@@ -27,20 +27,19 @@ http.open_timeout = 2
 	data[:temp] = 40.0 + rand(5.0)
 
 	# sg should slowly decrease and floor out
-  puts data
   data[:sg] = data[:sg] - (rand(8.0) / 1000.0)
   if data[:sg] < 1.005
-    puts "floor!"
     data[:sg] = 1.005
   end
 
   data_point = [data[:name], data[:timestamp], data[:status], data[:temp], data[:sg]]
 
-	request.body = data_point.to_json
+  json_array = data_point.to_json
+	request.body = json_array
 
 	# Send the request
 	response = http.request(request)
-	puts "Sent: #{data}. Response: #{response.code}"
+	puts "Sent: #{data_point}. Response: #{response.code}"
 
 	sleep(wait)
 end

@@ -1,5 +1,24 @@
 class DataPoint
   attr_accessor :name, :timestamp, :status, :temp, :sg
+  @@data_cache ||= []
+
+  def from_v1_array(a)
+    @name = a[0]
+    @timestamp = a[1]
+    @status = a[2]
+    @temp = a[3]
+    @sg = a[4]
+
+    self
+  end
+
+  def self.all
+    @@data_cache
+  end
+
+  def self.store(item)
+    @@data_cache << item
+  end
 
   def self.random(name, status = "OK")
     point = DataPoint.new
@@ -17,5 +36,9 @@ class DataPoint
       @items << DataPoint.random("ferm1")
     end
     @items
+  end
+
+  def to_s
+    "#{@name} @ #{@timestamp} is #{@status}"
   end
 end
